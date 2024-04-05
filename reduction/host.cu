@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <cuda_runtime.h>
 #include "kernel.h"
+#include "non_div_kernel.h"
+#include "first_add_during_load.h"
 
 int main() {
     int size = 1024;
