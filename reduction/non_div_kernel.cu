@@ -10,6 +10,7 @@ __global__ void reduce_non_div(int *g_idata, int *g_odata) {
     __syncthreads();
     // do reduction in shared mem
     for(unsigned int s=1; s < blockDim.x; s *= 2) {
+        int index = 2 * s * tid;
         if (index < blockDim.x) {    // same result, non-divergence
         sdata[index] += sdata[index + s];
         }
